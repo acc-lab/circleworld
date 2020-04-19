@@ -1,0 +1,91 @@
+body{
+    background-color: #1E1F26;
+}
+.wrapper{
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 480px;
+    height: 360px;
+    background-image: linear-gradient(45deg, #FF8484, #F9A825);
+    border: none;
+    text-align: right;
+}
+.sideSelector{
+    position: relative;
+    left: 270px;
+    top: 10px;
+    height: 30px;
+    width: 200px;
+}
+
+.box{
+    height: 10px;
+    width: 10px;
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+    margin-right: 0px;
+    vertical-align: top;
+    align-self: center;
+    display: inline-block;
+    border-radius: 4px;
+    border: 1px lightgrey solid;
+    margin-top: 2px;
+    opacity: 1;
+    transition: 0.5s;
+}
+.selector:hover .box{
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.selector{
+    float: left;
+    margin: 5px;
+    height: 20px;
+    width: 30px;
+    border: none;
+    border-radius: 2px;
+    border-color: lightgrey;
+    transition: 0.3s;
+    overflow: hidden;
+    padding-top: 0px;
+}
+.selector:hover{
+    width: 30px;
+    background-color: lightgrey;
+    padding-top: 18px;
+    transition: 0.3s;
+}
+
+/* Color selects */
+.a{
+    background-color: #FFFFFF;
+}.b{
+    background-color: #ADAFBC;
+}.c{
+    background-color: #090909;
+}.d{
+    background-color: #F9A825;
+}.e{
+    background-color: #FF8484;
+}.f{
+    background-color: #50C79B;
+}.g{
+    background-color: #52C7C5;
+}.h{
+    background-color: #9B35BD;
+}.i{
+    background-color: #BD3537;
+}.j{
+    background-color: #FF5900;
+}
+
+.sideMenu{
+    position: absolute;
+}
+
+button{
+    opacity: 0;
+}
