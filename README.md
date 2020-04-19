@@ -1,4 +1,4 @@
-# ***Geometric-gun***
+# ***Gunbox***
 
 A 2D shoot game with simple graphics that allow you to switch gun.
 
@@ -18,8 +18,8 @@ Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)\
 https://creativecommons.org/licenses/by-sa/3.0/
 
 ### Source
-Source code: https://github.com/acc-lab/geometric-gun
+Source code: https://github.com/acc-lab/gunbox
 
-Html: https://github.com/acc-lab/geometric-gun/blob/master/index.html \
-Css: https://github.com/acc-lab/geometric-gun/blob/master/style.css \
-Javascript: https://github.com/acc-lab/geometric-gun/blob/master/script.js
+Html: https://github.com/acc-lab/gunbox/blob/master/index.html \
+Css: https://github.com/acc-lab/gunbox/blob/master/style.css \
+Javascript: https://github.com/acc-lab/gunbox/blob/master/script.js
