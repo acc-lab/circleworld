@@ -18,8 +18,8 @@ Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)\
 https://creativecommons.org/licenses/by-sa/3.0/
 
 ### Source
-Source code: https://github.com/acc-lab/circleworld
+Source code: https://github.com/acc-lab/geometric-gun
 
-Html: https://github.com/acc-lab/circleworld/blob/master/index.html \
-Css: https://github.com/acc-lab/circleworld/blob/master/style.css \
-Javascript: https://github.com/acc-lab/circleworld/blob/master/script.js
+Html: https://github.com/acc-lab/geometric-gun/blob/master/index.html \
+Css: https://github.com/acc-lab/geometric-gun/blob/master/style.css \
+Javascript: https://github.com/acc-lab/geometric-gun/blob/master/script.js
