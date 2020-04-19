@@ -1,3 +1,9 @@
+/*version*/
+var version="1.0.0";
+
+
+
+/*main*/
 var progress=0;
 var boss=0;
 
@@ -15,207 +21,207 @@ function level(){
     //white, grey
     if(progress%200==0 && progress<1100){
         createMob(480, Math.floor(Math.random() * 201)+80, progress, 0.5, function(px, py){
-        color={};
-        color.r=0;
-        color.g=50;
-        color.b=0;
+			color={};
+			color.r=0;
+			color.g=50;
+			color.b=0;
 
-        this.reload-=1;
+			this.reload-=1;
 
-        if(this.reload==0){
-            var direction=aim(this.x, this.y, px, py);
-            var rad=Math.sqrt(2)*this.size;
-            createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction, 3, 5, "mob", color);
-            createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction+3, 3, 5, "mob", color);
-            createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction-3, 3, 5, "mob", color);
+			if(this.reload==0){
+				var direction=aim(this.x, this.y, px, py);
+				var rad=Math.sqrt(2)*this.size;
+				createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction, 3, 5, "mob", color);
+				createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction+3, 3, 5, "mob", color);
+				createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction-3, 3, 5, "mob", color);
 
-            this.reload=30;
-        }
-    });
+				this.reload=30;
+			}
+		});
     }
     if(progress==1100){
         boss=1;
     }
     if(progress==1200 && boss==0){
         createMob(480, 180, 5000, 0, function(px, py){
-        color={};
-        color.r=0;
-        color.g=0;
-        color.b=50;
+			color={};
+			color.r=0;
+			color.g=0;
+			color.b=50;
 
-        this.reload-=1;
+			this.reload-=1;
 
-        if(this.reload==0){
-            var direction=aim(this.x, this.y, px, py);
-            var rad=Math.sqrt(2)*this.size;
-            for(i=-20;i<=20;i+=2){
-                createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction+i, 7, 5, "mob", color);
-            }
-            
-            if(this.numeric!=5){
-                this.reload=5;
-                this.numeric+=1;
-            }else if(this.numeric==5){
-                this.reload=70;
-                this.numeric=0;
-            }
-        }
-        
-    },function(px, py){
-        if(this.done==0){
-            this.x-=1;
-        }
-        if(this.x==250){
-            this.done=1;
-        }
-    }, 15, function(){this.numeric=0; this.done=0;});
+			if(this.reload==0){
+				var direction=aim(this.x, this.y, px, py);
+				var rad=Math.sqrt(2)*this.size;
+				for(i=-20;i<=20;i+=2){
+					createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction+i, 7, 5, "mob", color);
+				}
+				
+				if(this.numeric!=5){
+					this.reload=5;
+					this.numeric+=1;
+				}else if(this.numeric==5){
+					this.reload=70;
+					this.numeric=0;
+				}
+			}
+			
+		},function(px, py){
+			if(this.done==0){
+				this.x-=1;
+			}
+			if(this.x==250){
+				this.done=1;
+			}
+		}, 15, function(){this.numeric=0; this.done=0;});
+		
         boss=1;
     }
     //black
     if(progress%350==0 && 1200<progress && progress<=2000){
         atk=function(px, py){
-        color={};
-        color.r=0;
-        color.g=50;
-        color.b=0;
+			color={};
+			color.r=0;
+			color.g=50;
+			color.b=0;
 
-        this.reload-=1;
+			this.reload-=1;
 
-        if(this.reload==0){
-            var direction=aim(this.x, this.y, px, py);
-            var rad=Math.sqrt(2)*this.size;
-            createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction, 8, 25, "mob", color);
-            createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction+1, 8, 25, "mob", color);
-            createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction-1, 8, 25, "mob", color);
+			if(this.reload==0){
+				var direction=aim(this.x, this.y, px, py);
+				var rad=Math.sqrt(2)*this.size;
+				createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction, 8, 25, "mob", color);
+				createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction+1, 8, 25, "mob", color);
+				createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction-1, 8, 25, "mob", color);
 
-            this.reload=30;
-        }
-    }
+				this.reload=30;
+			}
+		}
         walk=function(px, py){
-        if(this.done==0){
-            this.x-=1;
-        }
-        if(this.x==210+Math.floor(Math.random() * 61)){
-            this.done=1;
-        }else if(this.x==210){
-            this.done=1;
-        }
-    }
+			if(this.done==0){
+				this.x-=1;
+			}if(this.x==210+Math.floor(Math.random() * 61)){
+				this.done=1;
+			}else if(this.x==210){
+				this.done=1;
+			}
+		}
         createMob(480, Math.floor(Math.random() * 61)+90, 900, 0,atk, walk,8,function(){this.done=0;});
         createMob(480, Math.floor(Math.random() * 61)+210, 900, 0,atk, walk,8,function(){this.done=0;});
     }
     //yellow
     if(progress%300==0 && 2000<progress && progress<=2600){
         atk=function(px, py){
-        color={};
-        color.r=0;
-        color.g=50;
-        color.b=0;
+			color={};
+			color.r=0;
+			color.g=50;
+			color.b=0;
 
-        this.reload-=1;
+			this.reload-=1;
 
-        if(this.reload==0){
-            var direction=this.direction;
-            var rad=Math.sqrt(2)*this.size;
-            createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction, 6, 15, "mob", color);
-            createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction+1, 6, 15, "mob", color);
-            createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction-1, 6, 15, "mob", color);
+			if(this.reload==0){
+				var direction=this.direction;
+				var rad=Math.sqrt(2)*this.size;
+				createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction, 6, 15, "mob", color);
+				createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction+1, 6, 15, "mob", color);
+				createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction-1, 6, 15, "mob", color);
 
-            this.reload=30;
-        }
-    }
+				this.reload=30;
+			}
+		}
         walk=function(px, py){
-    var len = Math.sqrt((px-this.x)**2 + (py-this.y)**2);
+			var len = Math.sqrt((px-this.x)**2 + (py-this.y)**2);
 
-    var direction=this.direction;
+			var direction=this.direction;
 
-    s=this.speed;
-    
-    this.runTime-=1;
-    if(this.runTime==0){
-        if(this.form==0){
-            this.form=1;
-            this.runTime=30+Math.floor(Math.random() * 31);
-            this.direction=aim(this.x, this.y, px, py);
-        }else{
-            this.form=0;
-            this.runTime=20+Math.floor(Math.random() * 21);
-        }
-    }
-            
-    if(this.form==0) return 0;
-            
-    if(len>150){
-        this.vx += s*0.2*Math.cos(direction*(Math.PI/180));
-        this.vy += s*0.2*Math.sin(direction*(Math.PI/180));
-    }else if(len>80){
-        this.vx += s*0.15*Math.cos(direction*(Math.PI/180));
-        this.vy += s*0.15*Math.sin(direction*(Math.PI/180));
-    }else if(len>50){
-        this.vx += s*0.1*Math.cos(direction*(Math.PI/180));
-        this.vy += s*0.1*Math.sin(direction*(Math.PI/180));
-    }else{
-        //none
-    }
-}
+			s=this.speed;
+		
+			this.runTime-=1;
+			if(this.runTime==0){
+				if(this.form==0){
+					this.form=1;
+					this.runTime=30+Math.floor(Math.random() * 31);
+					this.direction=aim(this.x, this.y, px, py);
+				}else{
+					this.form=0;
+					this.runTime=20+Math.floor(Math.random() * 21);
+				}
+			}
+					
+			if(this.form==0) return 0;
+					
+			if(len>150){
+				this.vx += s*0.2*Math.cos(direction*(Math.PI/180));
+				this.vy += s*0.2*Math.sin(direction*(Math.PI/180));
+			}else if(len>80){
+				this.vx += s*0.15*Math.cos(direction*(Math.PI/180));
+				this.vy += s*0.15*Math.sin(direction*(Math.PI/180));
+			}else if(len>50){
+				this.vx += s*0.1*Math.cos(direction*(Math.PI/180));
+				this.vy += s*0.1*Math.sin(direction*(Math.PI/180));
+			}else{
+				//none
+			}
+		}
         createMob(480,Math.floor(Math.random() * 61)+60, 1500, 1.2, atk, walk,5,function(){this.form=0; this.runTime=10; this.direction=180;},);
         createMob(480,Math.floor(Math.random() * 61)+150, 1500, 1.2, atk, walk,5,function(){this.form=0; this.runTime=10; this.direction=180;},);
         createMob(480,Math.floor(Math.random() * 61)+240, 1500, 1.2, atk, walk,5,function(){this.form=0; this.runTime=10; this.direction=180;},);
     }
     if((progress%400==0 && 2600<progress && progress<=3400)
-      ||(progress%300==0 && 3400<progress && progress<4500)){
-        atk=function(px, py){
-        color={};
-        color.r=0;
-        color.g=50;
-        color.b=0;
+      ||(progress%350==0 && 3400<progress && progress<4500)){
+		atk=function(px, py){
+			color={};
+			color.r=0;
+			color.g=50;
+			color.b=0;
 
-        this.reload-=1;
+			this.reload-=1;
 
-        if(this.reload==0){
-            var direction=this.direction;
-            var rad=Math.sqrt(2)*this.size;
-            createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction, 6, 15, "mob", color);
-            createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction+1, 6, 15, "mob", color);
-            createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction-1, 6, 15, "mob", color);
+			if(this.reload==0){
+				var direction=this.direction;
+				var rad=Math.sqrt(2)*this.size;
+				createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction, 6, 15, "mob", color);
+				createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction+1, 6, 15, "mob", color);
+				createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction-1, 6, 15, "mob", color);
 
-            this.reload=30;
-        }
-    };
-        walk=function(px, py){
-    var len = Math.sqrt((px-this.x)**2 + (py-this.y)**2);
+				this.reload=30;
+			}
+		};
+		walk=function(px, py){
+			var len = Math.sqrt((px-this.x)**2 + (py-this.y)**2);
 
-    var direction=this.direction;
+			var direction=this.direction;
 
-    s=this.speed;
-    
-    this.runTime-=1;
-    if(this.runTime==0){
-        if(this.form==0){
-            this.form=1;
-            this.runTime=30+Math.floor(Math.random() * 31);
-            this.direction=aim(this.x, this.y, px, py);
-        }else{
-            this.form=0;
-            this.runTime=20+Math.floor(Math.random() * 21);
-        }
-    }
-            
-    if(this.form==0) return 0;
-            
-    if(len>150){
-        this.vx += s*0.2*Math.cos(direction*(Math.PI/180));
-        this.vy += s*0.2*Math.sin(direction*(Math.PI/180));
-    }else if(len>80){
-        this.vx += s*0.15*Math.cos(direction*(Math.PI/180));
-        this.vy += s*0.15*Math.sin(direction*(Math.PI/180));
-    }else if(len>50){
-        this.vx += s*0.1*Math.cos(direction*(Math.PI/180));
-        this.vy += s*0.1*Math.sin(direction*(Math.PI/180));
-    }else{
-        //none
-    }
-};
+			s=this.speed;
+			
+			this.runTime-=1;
+			if(this.runTime==0){
+				if(this.form==0){
+					this.form=1;
+					this.runTime=30+Math.floor(Math.random() * 31);
+					this.direction=aim(this.x, this.y, px, py);
+				}else{
+					this.form=0;
+					this.runTime=20+Math.floor(Math.random() * 21);
+				}
+			}
+					
+			if(this.form==0) return 0;
+					
+			if(len>150){
+				this.vx += s*0.2*Math.cos(direction*(Math.PI/180));
+				this.vy += s*0.2*Math.sin(direction*(Math.PI/180));
+			}else if(len>80){
+				this.vx += s*0.15*Math.cos(direction*(Math.PI/180));
+				this.vy += s*0.15*Math.sin(direction*(Math.PI/180));
+			}else if(len>50){
+				this.vx += s*0.1*Math.cos(direction*(Math.PI/180));
+				this.vy += s*0.1*Math.sin(direction*(Math.PI/180));
+			}else{
+				//none
+			}
+		};
         createMob(480,Math.floor(Math.random() * 61)+60, 1500, 1.2, atk, walk, 5,function(){this.form=0; this.runTime=10; this.direction=180;});
         createMob(480,Math.floor(Math.random() * 61)+150, 1500, 1.2, atk, walk, 5,function(){this.form=0; this.runTime=10; this.direction=180;});
         createMob(480,Math.floor(Math.random() * 61)+240, 1500, 1.2, atk, walk,5,function(){this.form=0; this.runTime=10; this.direction=180;});
@@ -226,59 +232,59 @@ function level(){
     if(progress==4500){
         boss=1;
     }
-    if(progress%125==0 && 4500<progress && progress<=5200){
+    if(progress%200==0 && 4500<progress && progress<=5200){
         atk=function(px, py){
-        color={};
-        color.r=0;
-        color.g=50;
-        color.b=0;
+			color={};
+			color.r=0;
+			color.g=50;
+			color.b=0;
 
-        this.reload-=1;
+			this.reload-=1;
 
-        if(this.reload==0){
-            var direction=this.direction;
-            var rad=Math.sqrt(2)*this.size;
-            createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction, 6, 15, "mob", color);
-            createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction+1, 6, 15, "mob", color);
-            createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction-1, 6, 15, "mob", color);
+			if(this.reload==0){
+				var direction=this.direction;
+				var rad=Math.sqrt(2)*this.size;
+				createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction, 6, 15, "mob", color);
+				createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction+1, 6, 15, "mob", color);
+				createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction-1, 6, 15, "mob", color);
 
-            this.reload=30;
-        }
-    };
+				this.reload=30;
+			}
+		};
         walk=function(px, py){
-    var len = Math.sqrt((px-this.x)**2 + (py-this.y)**2);
+			var len = Math.sqrt((px-this.x)**2 + (py-this.y)**2);
 
-    var direction=this.direction;
+			var direction=this.direction;
 
-    s=this.speed;
-    
-    this.runTime-=1;
-    if(this.runTime==0){
-        if(this.form==0){
-            this.form=1;
-            this.runTime=30+Math.floor(Math.random() * 31);
-            this.direction=aim(this.x, this.y, px, py);
-        }else{
-            this.form=0;
-            this.runTime=20+Math.floor(Math.random() * 21);
-        }
-    }
-            
-    if(this.form==0) return 0;
-            
-    if(len>150){
-        this.vx += s*0.2*Math.cos(direction*(Math.PI/180));
-        this.vy += s*0.2*Math.sin(direction*(Math.PI/180));
-    }else if(len>80){
-        this.vx += s*0.15*Math.cos(direction*(Math.PI/180));
-        this.vy += s*0.15*Math.sin(direction*(Math.PI/180));
-    }else if(len>50){
-        this.vx += s*0.1*Math.cos(direction*(Math.PI/180));
-        this.vy += s*0.1*Math.sin(direction*(Math.PI/180));
-    }else{
-        //none
-    }
-};
+			s=this.speed;
+		
+			this.runTime-=1;
+			if(this.runTime==0){
+				if(this.form==0){
+					this.form=1;
+					this.runTime=30+Math.floor(Math.random() * 31);
+					this.direction=aim(this.x, this.y, px, py);
+				}else{
+					this.form=0;
+					this.runTime=20+Math.floor(Math.random() * 21);
+				}
+			}
+				
+			if(this.form==0) return 0;
+					
+			if(len>150){
+				this.vx += s*0.2*Math.cos(direction*(Math.PI/180));
+				this.vy += s*0.2*Math.sin(direction*(Math.PI/180));
+			}else if(len>80){
+				this.vx += s*0.15*Math.cos(direction*(Math.PI/180));
+				this.vy += s*0.15*Math.sin(direction*(Math.PI/180));
+			}else if(len>50){
+				this.vx += s*0.1*Math.cos(direction*(Math.PI/180));
+				this.vy += s*0.1*Math.sin(direction*(Math.PI/180));
+			}else{
+				//none
+			}
+		};
         init=function(){this.form=0; this.runTime=10; this.direction=180;};
         createMob(480,90,5000, 2, atk, walk, 5, init);
         createMob(480,180,5000, 2, atk, walk, 5, init);
@@ -288,121 +294,123 @@ function level(){
         createMob(0,270,5000, 2, atk, walk, 5, init);
     }
     //blue
-    if(progress%75==0 && 5200<progress && progress<=6000){
+    if(progress%150==0 && 5200<progress && progress<=6000){
         atk=function(px, py){
-        color={};
-        color.r=0;
-        color.g=50;
-        color.b=0;
+			color={};
+			color.r=0;
+			color.g=50;
+			color.b=0;
 
-        this.reload-=1;
+			this.reload-=1;
 
-        if(this.reload==0){
-            var direction=this.direction;
-            var rad=Math.sqrt(2)*this.size;
-            createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction, 6, 15, "mob", color);
-            createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction+1, 6, 15, "mob", color);
-            createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction-1, 6, 15, "mob", color);
+			if(this.reload==0){
+				var direction=this.direction;
+				var rad=Math.sqrt(2)*this.size;
+				createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction, 6, 15, "mob", color);
+				createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction+1, 6, 15, "mob", color);
+				createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction-1, 6, 15, "mob", color);
 
-            this.reload=30;
-        }
-    };
+				this.reload=30;
+			}
+		};
         walk=function(px, py){
-    var len = Math.sqrt((px-this.x)**2 + (py-this.y)**2);
+			var len = Math.sqrt((px-this.x)**2 + (py-this.y)**2);
 
-    var direction=this.direction;
+			var direction=this.direction;
 
-    s=this.speed;
-    
-    this.runTime-=1;
-    if(this.runTime==0){
-        if(this.form==0){
-            this.form=1;
-            this.runTime=30+Math.floor(Math.random() * 31);
-            this.direction=aim(this.x, this.y, px, py);
-        }else{
-            this.form=0;
-            this.runTime=20+Math.floor(Math.random() * 21);
-        }
-    }
-            
-    if(this.form==0) return 0;
-            
-    if(len>150){
-        this.vx += s*0.2*Math.cos(direction*(Math.PI/180));
-        this.vy += s*0.2*Math.sin(direction*(Math.PI/180));
-    }else if(len>80){
-        this.vx += s*0.15*Math.cos(direction*(Math.PI/180));
-        this.vy += s*0.15*Math.sin(direction*(Math.PI/180));
-    }else if(len>50){
-        this.vx += s*0.1*Math.cos(direction*(Math.PI/180));
-        this.vy += s*0.1*Math.sin(direction*(Math.PI/180));
-    }else{
-        //none
-    }
-};
+			s=this.speed;
+			
+			this.runTime-=1;
+			if(this.runTime==0){
+				if(this.form==0){
+					this.form=1;
+					this.runTime=30+Math.floor(Math.random() * 31);
+					this.direction=aim(this.x, this.y, px, py);
+				}else{
+					this.form=0;
+					this.runTime=20+Math.floor(Math.random() * 21);
+				}
+			}
+					
+			if(this.form==0) return 0;
+					
+			if(len>150){
+				this.vx += s*0.2*Math.cos(direction*(Math.PI/180));
+				this.vy += s*0.2*Math.sin(direction*(Math.PI/180));
+			}else if(len>80){
+				this.vx += s*0.15*Math.cos(direction*(Math.PI/180));
+				this.vy += s*0.15*Math.sin(direction*(Math.PI/180));
+			}else if(len>50){
+				this.vx += s*0.1*Math.cos(direction*(Math.PI/180));
+				this.vy += s*0.1*Math.sin(direction*(Math.PI/180));
+			}else{
+				//none
+			}
+		};
         init=function(){this.form=0; this.runTime=10; this.direction=180;};
+		
         createMob(480,90,7000, 2.5, atk, walk, 5, init);
         createMob(480,180,7000, 2.5, atk, walk, 5, init);
         createMob(480,270,7000, 2.5, atk, walk, 5, init);
         createMob(0,90,7000, 2.5, atk, walk, 5, init);
         createMob(0,180,7000, 2.5, atk, walk, 5, init);
         createMob(0,270,7000, 2.5, atk, walk, 5, init);
+		
     }if(progress==6001){
         boss=1;
     }
     
     if(progress==6050){
         atk=function(px, py){
-        color={};
-        color.r=100;
-        color.g=-50;
-        color.b=-50;
+			color={};
+			color.r=100;
+			color.g=-50;
+			color.b=-50;
 
-        this.reload-=1;
+			this.reload-=1;
 
-        if(this.reload==0){
-            var direction=this.direction;
-            var rad=Math.sqrt(2)*this.size;
-            createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction, 3, 50, "mob", color);
+			if(this.reload==0){
+				var direction=this.direction;
+				var rad=Math.sqrt(2)*this.size;
+				createBullet(this.x+rad*Math.cos(direction*(Math.PI/180)),this.y+rad*Math.sin(direction*(Math.PI/180)), 360-direction, 3, 50, "mob", color);
 
-            this.reload=15;
-        }
-    };
+				this.reload=15;
+			}
+		};
         walk=function(px, py){
-    var len = Math.sqrt((px-this.x)**2 + (py-this.y)**2);
+			var len = Math.sqrt((px-this.x)**2 + (py-this.y)**2);
 
-    var direction=this.direction;
+			var direction=this.direction;
 
-    s=this.speed;
-    
-    this.runTime-=1;
-    if(this.runTime==0){
-        if(this.form==0){
-            this.form=1;
-            this.runTime=30+Math.floor(Math.random() * 31);
-            this.direction=aim(this.x, this.y, px, py);
-        }else{
-            this.form=0;
-            this.runTime=20+Math.floor(Math.random() * 21);
-        }
-    }
-            
-    if(this.form==0) return 0;
-            
-    if(len>150){
-        this.vx += s*0.2*Math.cos(direction*(Math.PI/180));
-        this.vy += s*0.2*Math.sin(direction*(Math.PI/180));
-    }else if(len>80){
-        this.vx += s*0.15*Math.cos(direction*(Math.PI/180));
-        this.vy += s*0.15*Math.sin(direction*(Math.PI/180));
-    }else if(len>50){
-        this.vx += s*0.1*Math.cos(direction*(Math.PI/180));
-        this.vy += s*0.1*Math.sin(direction*(Math.PI/180));
-    }else{
-        //none
-    }
-};
+			s=this.speed;
+			
+			this.runTime-=1;
+			if(this.runTime==0){
+				if(this.form==0){
+					this.form=1;
+					this.runTime=30+Math.floor(Math.random() * 31);
+					this.direction=aim(this.x, this.y, px, py);
+				}else{
+					this.form=0;
+					this.runTime=20+Math.floor(Math.random() * 21);
+				}
+			}
+					
+			if(this.form==0) return 0;
+					
+			if(len>150){
+				this.vx += s*0.2*Math.cos(direction*(Math.PI/180));
+				this.vy += s*0.2*Math.sin(direction*(Math.PI/180));
+			}else if(len>80){
+				this.vx += s*0.15*Math.cos(direction*(Math.PI/180));
+				this.vy += s*0.15*Math.sin(direction*(Math.PI/180));
+			}else if(len>50){
+				this.vx += s*0.1*Math.cos(direction*(Math.PI/180));
+				this.vy += s*0.1*Math.sin(direction*(Math.PI/180));
+			}else{
+				//none
+			}
+		};
         stay=function(px, py){};
         init_head_l=function(){this.form=0; this.runTime=10; this.direction=180;}
         init_head_r=function(){this.form=0; this.runTime=10; this.direction=0;}
